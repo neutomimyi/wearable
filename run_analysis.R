@@ -9,8 +9,10 @@ features <- read.table("./UCI HAR Dataset//features.txt",
 
 ##get a vector of features that are either mean or standard deviation of 
 ##measurements
-reqFeatures = c(grep("mean()",features$featureName, fixed=TRUE), 
+reqFeatures <- c(grep("mean()",features$featureName, fixed=TRUE), 
                 grep("std()", features$featureName, fixed = TRUE))
+
+reqFeatures <- sort(reqFeatures)
 
 ##read the training dataset
 laf <- laf_open_fwf("./UCI HAR Dataset/train/X_train.txt", 
